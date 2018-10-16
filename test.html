@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="./arrFunction.js"></script>
+    <script>
+        var array = [
+            { a: 1, b: 2, c: 3, d: 4 },
+            { a: 11, b: 22, c: 333, d: 44 },
+            { a: 111, b: 222, c: 333, d: 444 },
+            { a: 111, b: 2, c: 33, d: 44 },
+            { a: 11, b: 22, c: 33, d: 444 }
+        ];
+        console.log(uniqeByKeys(array, ['a', 'b']));
+    </script>
+
+</body>
+</html>
