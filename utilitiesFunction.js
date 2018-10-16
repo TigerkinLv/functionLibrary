@@ -50,3 +50,25 @@ function isWifi(){
     }
     return wifi;
 }
+/**
+ * 功能：非input(如div) 元素  ，可编辑后，获取焦点后，让光标处于文本后
+ * 说明：TextRange对象是动态HTML(DHTML)的高级特性，可以实现很多文本操作
+ * @param {*} el dom元素
+ */
+function set_focus(el){ 
+    el.focus(); //让元素获取焦点
+    if($.support.msie){ //  是否为ie浏览器
+        var range =document.selection.createRange();// 创建一个range 对象
+        this.last=range;
+        range.moveToElementText(el);// 移动range对象，使其起始点之间包含指定对象内的文本
+        range.select();// 将当前选择区置为当前对象， 所谓的“光标” ，可以理解为边界重合的范围
+        document.selection.empty();// 取消选中
+    }else{
+        var range=document.createRange();// 创建一个range对象
+        range.selectNodeContents(el);// 获取节点的子节点
+        range.collapse(false);// 把 范围的开始点设置为与结束点相同的值
+        var sel =window.getSelection();// 返回一个Selection 对象，表示用户选择 的文本范围或光标的当前位置
+        sel.removeAllRanges();// 会从当前的selection对象中移除所有的range对象，取消所有的选择，只留下anchorNode和 focusNode 属性，并将其设置为null  
+        sel.addRange(range);// 向选区（Selection）中添加一个区域（Range）
+    }
+}
