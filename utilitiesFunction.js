@@ -1,5 +1,6 @@
 /**
  * 实用工具类函数集合
+ * Add by Liwei
  */
 
 /**
@@ -71,4 +72,12 @@ function set_focus(el){
         sel.removeAllRanges();// 会从当前的selection对象中移除所有的range对象，取消所有的选择，只留下anchorNode和 focusNode 属性，并将其设置为null  
         sel.addRange(range);// 向选区（Selection）中添加一个区域（Range）
     }
+}
+/**
+ * 生成指定范围之间的随机数
+ * @param {*} min 最小值
+ * @param {*} max 最大值
+ */
+function getRandomNum(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
 }
