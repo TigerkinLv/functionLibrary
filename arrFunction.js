@@ -28,3 +28,19 @@ function uniqeByKeys(array,keys){
     }  
     return arr ;  
 }  
+
+// es6 数组去重
+/**
+ * 数组去重方法1
+ * @param {*} arr   要去重的数组
+ */
+function arrDeweight(arr){
+    return [...new Set(arr)];
+}
+/**
+ * 数组去重方法2
+ * @param {*} arr  要去重的数组
+ */
+function arrDeweight1(arr){
+    return Array.from(new Set(arr));
+}
