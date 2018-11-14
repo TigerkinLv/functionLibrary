@@ -112,3 +112,19 @@
         dataUrlToFile(newImg.src,sfileName,imgStyle);// 将剪切的图片转化为file对象
         return newImg;
     }
+
+/**
+* 本地图片（file对象）转为img 标签，用于页面的预览
+* @param {file} file 本地要上传的file对象
+*/
+function file2ImgHtml(file) {
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file); // 读取文件
+    fileReader.onload = function () { //  获取读取的图片的结果， dataurl
+        var img = new Image();//  创建给一个image 对象
+        img.onload = function () {
+            console.log(img);//  生成的img 标签 可追加至dom树中
+        }
+        img.src = fileReader.result;
+    }
+}
