@@ -128,3 +128,17 @@ function file2ImgHtml(file) {
         img.src = fileReader.result;
     }
 }
+/**
+ * 把一个dom标签转为str
+ * @param {domNode} node 
+ */
+function nodeToString ( node ) {  
+    //createElement()返回一个Element对象
+   var tmpNode = document.createElement( "div" ); 
+   //appendChild()  参数Node对象   返回Node对象  Element方法
+   //cloneNode()  参数布尔类型  返回Node对象   Element方法
+   tmpNode.appendChild( node.cloneNode( true ) );  
+   var str = tmpNode.innerHTML;  
+   tmpNode = node = null; // 防止IE中内存泄漏 
+   return str;  
+  } 
