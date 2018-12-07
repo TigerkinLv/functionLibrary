@@ -142,3 +142,19 @@ function nodeToString ( node ) {
    tmpNode = node = null; // 防止IE中内存泄漏 
    return str;  
   } 
+/**
+ * 将读取的本地的图片file =>> 用于展示的image 对象
+ * @param {*} file 读取本地的图片
+ */
+function imgPreview(file){
+    var fr =new  FileReader();
+    fr.onload=function(e){// 读取完毕
+        var img=new Image();
+        var imgSrc=e.target.result;
+        img.onload=function(){
+            return img;
+        }
+        img.src=imgSrc;
+    }
+    fr.readAsDataURL(file);
+}
