@@ -112,3 +112,18 @@ function parseUrl(url){
         segments: a.pathname.replace(/^\//,'').split('/')
     };
 }
+/**
+ * 弹窗可视化窗口居中显示
+ * @param {Jq DOM} popupName  要再可视化窗口居中显示的jq dom
+ * 注释： $(document) 是获取整个网页的， $(window) 是获取当前窗体的
+ */
+function popup(popupName){
+    var _scrollHeight=$(document).scrollTop(),//  获取当前窗口距离页面顶部高度
+    _windowHeight=$(window).height(),// 获取当前窗口高度
+    _windowWidth=$(window).width(),// 获取当前窗口宽度
+    _popupHeight=popupName.height(),// 获取弹出层高度
+    _popupWidth=popupName.width();// 获取弹出层宽度
+    _posiTop=(_windowHeight-_popupHeight)/2+_scrollHeight;
+    _posiLeft=(_windowWidth-_popupWidth)/2;
+    popupName.css({"left":_posiLeft+"px","top":_posiTop+"px","display":"block"});
+}
